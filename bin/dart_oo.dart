@@ -22,4 +22,6 @@ void main() {
     final names = list.map((s) => s.name).join(', ');
     print('  $grade: $names');
   });
+  print('及格学生中分数前三名:');
+  print(book.passedRank());
 }

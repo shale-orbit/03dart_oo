@@ -39,4 +39,16 @@ class GradeBook with Logger {
     log('分档完成: ${result.keys}');
     return result;
   }
+
+  //求及格学生中分数前三名的名字排行
+String passedRank() {
+  final sorted = _students.toList()
+    ..sort((a, b) => b.score.compareTo(a.score)); 
+  return sorted
+      .where((s) => s.score >= 60)                                    
+      .take(3)                                                        
+      .map((s) => '${s.name}(${s.score.toStringAsFixed(0)})')      
+      .toList()
+      .join('、');                                                  
+}
 }
